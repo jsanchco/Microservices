@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
-namespace Base.Controllers
+namespace Base.API.Controllers
 {
     [ApiController]
     [Route("api/v1/default")]

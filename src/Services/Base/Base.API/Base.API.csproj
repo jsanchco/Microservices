@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
@@ -14,8 +14,8 @@
     <Folder Include="healthchecks\" />
   </ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\..\Common\Common.Logging\Common.Logging.csproj" />
+  <ItemGroup>    
+    <ProjectReference Include="..\..\..\Common\Common.Logging\Common.Logging.csproj" />
   </ItemGroup>
 
 
