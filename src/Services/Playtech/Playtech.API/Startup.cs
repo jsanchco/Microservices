@@ -42,7 +42,7 @@ namespace Playtech.API
                 s.SwaggerDoc("v1", new Microsoft.OpenApi.Models.OpenApiInfo
                 {
                     Title = "Microservice Playtech",
-                    Description = "Base API"
+                    Description = "Playtech API"
                 });
             });
         }
