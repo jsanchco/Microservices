@@ -1,0 +1,27 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AspNetCore.HealthChecks.UI" Version="3.0.9" />
+    <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="9.0.0" />
+    <PackageReference Include="Microsoft.Azure.ServiceBus" Version="5.0.0" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="3.1.8" />
+    <PackageReference Include="Microsoft.Extensions.Diagnostics.HealthChecks.EntityFrameworkCore" Version="3.1.1" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="5.6.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="healthchecks\" />
+  </ItemGroup>
+
+  <ItemGroup>    
+    <ProjectReference Include="..\..\..\Common\Common.Bus\Common.Bus.csproj" />    
+    <ProjectReference Include="..\..\..\Common\Common.Logging\Common.Logging.csproj" />    
+    <ProjectReference Include="..\OmnichannelDB.Service.EventHandlers\OmnichannelDB.Service.EventHandlers.csproj" />
+  </ItemGroup>
+
+
+</Project>
