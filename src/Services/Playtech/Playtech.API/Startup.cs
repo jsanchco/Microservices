@@ -1,3 +1,4 @@
+using Common.Bus;
 using Common.Logging;
 using HealthChecks.UI.Client;
 using Microsoft.AspNetCore.Builder;
@@ -8,6 +9,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Diagnostics.HealthChecks;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Playtech.Service.Player;
 
 namespace Playtech.API
 {
@@ -36,6 +38,11 @@ namespace Playtech.API
             services.AddHealthChecksUI();
 
             services.AddControllers();
+
+            // Receiver bus
+            services.AddSingleton<IServiceBus, ServiceBus>();
+
+            services.AddTransient<IServicePlayer, ServicePlayer>();
 
             services.AddSwaggerGen(s =>
             {

@@ -1,3 +1,4 @@
+using Common.Bus;
 using Common.Logging;
 using HealthChecks.UI.Client;
 using MediatR;
@@ -9,10 +10,10 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Diagnostics.HealthChecks;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
-using OmnichannelBD.API.Config;
+using OmnichannelDB.API.Config;
 using System.Reflection;
 
-namespace OmnichannelBD.API
+namespace OmnichannelDB.API
 {
     public class Startup
     {
@@ -43,12 +44,15 @@ namespace OmnichannelBD.API
 
             services.AddControllers();
 
+            // Receiver bus
+            services.AddSingleton<IServiceBus, ServiceBus>();
+
             services.AddSwaggerGen(s =>
             {
                 s.SwaggerDoc("v1", new Microsoft.OpenApi.Models.OpenApiInfo
                 {
-                    Title = "Microservice OmnichannelBD",
-                    Description = "OmnichannelBD API"
+                    Title = "Microservice OmnichannelDB",
+                    Description = "OmnichannelDB API"
                 });
             });
         }

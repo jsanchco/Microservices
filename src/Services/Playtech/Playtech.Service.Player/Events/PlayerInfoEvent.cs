@@ -1,4 +1,4 @@
-﻿namespace OmnichannelBD.API.Events
+﻿namespace Playtech.Service.Player.Events
 {
     public class PlayerInfoEvent
     {

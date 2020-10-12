@@ -4,17 +4,17 @@ using Microsoft.Extensions.Logging;
 using OmnichannelDB.Service.EventHandlers.Commands;
 using System.Threading.Tasks;
 
-namespace OmnichannelBD.API.Controllers
+namespace OmnichannelDB.API.Controllers
 {
     [Route("api/v1/[controller]")]
     [ApiController]
-    public class DeviceVerificationController : ControllerBase
+    public class PlayerInfoController : ControllerBase
     {
-        private readonly ILogger<DeviceVerificationController> _logger;
+        private readonly ILogger<PlayerInfoController> _logger;
         private readonly IMediator _mediator;
 
-        public DeviceVerificationController(
-                ILogger<DeviceVerificationController> logger,
+        public PlayerInfoController(
+                ILogger<PlayerInfoController> logger,
                 IMediator mediator)
         {
             _logger = logger;
@@ -22,9 +22,9 @@ namespace OmnichannelBD.API.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Create(DeviceVerificarionCreateCommand notification)
+        public async Task<IActionResult> Create(PlayerInfoCreateCommand notification)
         {
-            _logger.LogInformation("In DeviceVerificationController -> Create");
+            _logger.LogInformation("In PlayerInfoController -> Create");
 
             await _mediator.Publish(notification);
             return Ok();

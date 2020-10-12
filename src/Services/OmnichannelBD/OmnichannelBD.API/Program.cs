@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Hosting;
 
-namespace OmnichannelBD.API
+namespace OmnichannelDB.API
 {
     public class Program
     {

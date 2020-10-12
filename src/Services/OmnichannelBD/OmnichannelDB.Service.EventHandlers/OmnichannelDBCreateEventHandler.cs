@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace OmnichannelDB.Service.EventHandlers
 {
-    public class OmnichannelDBCreateEventHandler : INotificationHandler<DeviceVerificarionCreateCommand>
+    public class OmnichannelDBCreateEventHandler : INotificationHandler<PlayerInfoCreateCommand>
     {
         private readonly ILogger<OmnichannelDBCreateEventHandler> _logger;
 
@@ -15,10 +15,10 @@ namespace OmnichannelDB.Service.EventHandlers
             _logger = logger;
         }
 
-        public async Task Handle(DeviceVerificarionCreateCommand command, CancellationToken cancellationToken)
+        public async Task Handle(PlayerInfoCreateCommand command, CancellationToken cancellationToken)
         {
-            _logger.LogInformation("--- New DeviceVerification creation started");
-            _logger.LogInformation("--- New DeviceVerification creation ended");
+            _logger.LogInformation("--- New PlayerInfo creation started");
+            _logger.LogInformation("--- New PlayerInfo creation ended");
         }
     }
 }
