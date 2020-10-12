@@ -1,8 +1,8 @@
 ﻿using Common.Bus;
 using Microsoft.Azure.ServiceBus;
 using Microsoft.Extensions.Logging;
-using Playtech.Domain;
 using Playtech.Service.Player.Events;
+using Playtech.Service.Player.Models;
 using System.Collections.Generic;
 using System.Text;
 using System.Text.Json;
@@ -55,11 +55,10 @@ namespace Playtech.Service.Player
 
             return new PlayerInfo
             {
-                Id = 1,
                 Firstname = "Jesus",
                 Lastname = "Sanchez",
                 Username = "jsanchco",
-                PersonaleId = "234353"
+                PersonalId = "234353"
             };
         }
     }
