@@ -65,6 +65,12 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OmnichannelDB.Service.Event
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OmnichannelDB.Domain", "src\Services\OmnichannelDB\OmnichannelDB.Domain\OmnichannelDB.Domain.csproj", "{3399F96F-D3CC-47FA-B43B-CEA2729D9A0E}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "04. Persistence", "04. Persistence", "{B6F7A2F2-1BF8-468B-8249-80D1BC519F88}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OmnichannelDB.Persistence.Database", "src\Services\OmnichannelDB\OmnichannelDB.Persistence.Database\OmnichannelDB.Persistence.Database.csproj", "{E1A74591-B1C3-4A54-A315-6460CD7D2B6C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OmnichannelDB.Service.Queries", "src\Services\OmnichannelDB\OmnichannelDB.Service.Queries\OmnichannelDB.Service.Queries.csproj", "{F226D301-AC55-49FE-9747-F3FEBE4860C5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -115,6 +121,14 @@ Global
 		{3399F96F-D3CC-47FA-B43B-CEA2729D9A0E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3399F96F-D3CC-47FA-B43B-CEA2729D9A0E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3399F96F-D3CC-47FA-B43B-CEA2729D9A0E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E1A74591-B1C3-4A54-A315-6460CD7D2B6C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E1A74591-B1C3-4A54-A315-6460CD7D2B6C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E1A74591-B1C3-4A54-A315-6460CD7D2B6C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E1A74591-B1C3-4A54-A315-6460CD7D2B6C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F226D301-AC55-49FE-9747-F3FEBE4860C5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F226D301-AC55-49FE-9747-F3FEBE4860C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F226D301-AC55-49FE-9747-F3FEBE4860C5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F226D301-AC55-49FE-9747-F3FEBE4860C5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -147,6 +161,9 @@ Global
 		{A3C4AE2D-9632-44E5-9FAB-DE001248AAEF} = {A30A4DBC-9F57-4AF4-9A0B-FBC86D06D825}
 		{54320856-A8E1-4456-9A65-A0A3C8B92FAF} = {1BAA2152-85FA-4638-BF14-D3A54153569A}
 		{3399F96F-D3CC-47FA-B43B-CEA2729D9A0E} = {EE5E5BE3-A143-4A1D-87AF-BEB942D153D9}
+		{B6F7A2F2-1BF8-468B-8249-80D1BC519F88} = {843B0926-C19E-4DC8-A087-B01262B2C782}
+		{E1A74591-B1C3-4A54-A315-6460CD7D2B6C} = {B6F7A2F2-1BF8-468B-8249-80D1BC519F88}
+		{F226D301-AC55-49FE-9747-F3FEBE4860C5} = {1BAA2152-85FA-4638-BF14-D3A54153569A}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {0A5531EE-CDD1-445F-9144-2247A88CD37D}

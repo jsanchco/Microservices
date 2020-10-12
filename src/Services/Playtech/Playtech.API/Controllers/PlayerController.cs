@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using Playtech.Domain;
 using Playtech.Service.Player;
+using Playtech.Service.Player.Models;
 using System.Linq;
 using System.Threading.Tasks;
 

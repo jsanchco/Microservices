@@ -8,6 +8,10 @@
     <PackageReference Include="AspNetCore.HealthChecks.UI" Version="3.0.9" />
     <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="9.0.0" />
     <PackageReference Include="Microsoft.Azure.ServiceBus" Version="5.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.8">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="3.1.8" />
     <PackageReference Include="Microsoft.Extensions.Diagnostics.HealthChecks.EntityFrameworkCore" Version="3.1.1" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="5.6.3" />
@@ -20,7 +24,9 @@
   <ItemGroup>    
     <ProjectReference Include="..\..\..\Common\Common.Bus\Common.Bus.csproj" />    
     <ProjectReference Include="..\..\..\Common\Common.Logging\Common.Logging.csproj" />    
-    <ProjectReference Include="..\OmnichannelDB.Service.EventHandlers\OmnichannelDB.Service.EventHandlers.csproj" />
+    <ProjectReference Include="..\OmnichannelDB.Persistence.Database\OmnichannelDB.Persistence.Database.csproj" />    
+    <ProjectReference Include="..\OmnichannelDB.Service.EventHandlers\OmnichannelDB.Service.EventHandlers.csproj" />    
+    <ProjectReference Include="..\OmnichannelDB.Service.Queries\OmnichannelDB.Service.Queries.csproj" />
   </ItemGroup>
 
 

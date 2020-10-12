@@ -5,12 +5,15 @@ using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Diagnostics.HealthChecks;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Diagnostics.HealthChecks;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using OmnichannelDB.API.Config;
+using OmnichannelDB.Persistence.Database;
+using OmnichannelDB.Service.Queries;
 using System.Reflection;
 
 namespace OmnichannelDB.API
@@ -27,6 +30,11 @@ namespace OmnichannelDB.API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            // DbContext
+            services.AddDbContext<ApplicationDbContext>(
+                options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"))
+            );
+
             // Health check            
             // - Add NuGet package: AspNetCore.HealthChecks.UI (Version 3.0.9)
             // - Add folder 'healthchecks' to project
@@ -39,6 +47,9 @@ namespace OmnichannelDB.API
 
             // Event handlers
             services.AddMediatR(Assembly.Load("OmnichannelDB.Service.EventHandlers"));
+
+            // Query services
+            services.AddTransient<IPlayerQueryService, PlayerQueryService>();
 
             services.AddHealthChecksUI();
 
