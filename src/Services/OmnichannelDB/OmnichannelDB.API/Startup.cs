@@ -13,6 +13,9 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using OmnichannelDB.API.Config;
 using OmnichannelDB.Persistence.Database;
+using OmnichannelDB.Service.EventHandlers.Commands;
+using OmnichannelDB.Service.EventHandlers.Hadlers;
+using OmnichannelDB.Service.EventHandlers.Handlers;
 using OmnichannelDB.Service.Queries;
 using System.Reflection;
 
@@ -31,10 +34,11 @@ namespace OmnichannelDB.API
         public void ConfigureServices(IServiceCollection services)
         {
             // DbContext
+            services.AddScoped<ApplicationDbContext>();
             services.AddDbContext<ApplicationDbContext>(
                 options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"))
             );
-
+            
             // Health check            
             // - Add NuGet package: AspNetCore.HealthChecks.UI (Version 3.0.9)
             // - Add folder 'healthchecks' to project
@@ -48,15 +52,18 @@ namespace OmnichannelDB.API
             // Event handlers
             services.AddMediatR(Assembly.Load("OmnichannelDB.Service.EventHandlers"));
 
+            // Receiver bus
+            services.AddSingleton<IServiceBus, ServiceBus>();
+
+            // Handlers
+            services.AddSingleton<IHandler<PlayerInfoCreateCommand>, PlayerCreateEventHandler>();
+
             // Query services
             services.AddTransient<IPlayerQueryService, PlayerQueryService>();
 
             services.AddHealthChecksUI();
 
             services.AddControllers();
-
-            // Receiver bus
-            services.AddSingleton<IServiceBus, ServiceBus>();
 
             services.AddSwaggerGen(s =>
             {

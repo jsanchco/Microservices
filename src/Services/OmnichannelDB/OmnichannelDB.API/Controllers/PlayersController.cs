@@ -14,14 +14,14 @@ namespace OmnichannelDB.API.Controllers
 {
     [Route("api/v1/[controller]")]
     [ApiController]
-    public class PlayerController : ControllerBase
+    public class PlayersController : ControllerBase
     {
-        private readonly ILogger<PlayerController> _logger;
+        private readonly ILogger<PlayersController> _logger;
         private readonly IPlayerQueryService _playerQueryService;
         private readonly IMediator _mediator;
 
-        public PlayerController(
-                ILogger<PlayerController> logger,
+        public PlayersController(
+                ILogger<PlayersController> logger,
                 IPlayerQueryService playerQueryService,
                 IMediator mediator)
         {
