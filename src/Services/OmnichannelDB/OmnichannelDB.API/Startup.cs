@@ -34,7 +34,6 @@ namespace OmnichannelDB.API
         public void ConfigureServices(IServiceCollection services)
         {
             // DbContext
-            services.AddScoped<ApplicationDbContext>();
             services.AddDbContext<ApplicationDbContext>(
                 options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"))
             );
@@ -53,7 +52,7 @@ namespace OmnichannelDB.API
             services.AddMediatR(Assembly.Load("OmnichannelDB.Service.EventHandlers"));
 
             // Receiver bus
-            services.AddSingleton<IServiceBus, ServiceBus>();
+            services.AddSingleton<IServiceBus, ServiceBus>();            
 
             // Handlers
             services.AddSingleton<IHandler<PlayerInfoCreateCommand>, PlayerCreateEventHandler>();

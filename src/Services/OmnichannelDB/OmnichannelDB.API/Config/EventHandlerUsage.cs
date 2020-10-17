@@ -1,5 +1,4 @@
 ﻿using Common.Bus;
-using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Azure.ServiceBus;
 using Microsoft.Extensions.DependencyInjection;

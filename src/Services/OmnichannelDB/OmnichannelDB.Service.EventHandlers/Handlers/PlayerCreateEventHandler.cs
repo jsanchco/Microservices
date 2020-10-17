@@ -1,8 +1,11 @@
 ﻿using MediatR;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using OmnichannelDB.Persistence.Database;
 using OmnichannelDB.Service.EventHandlers.Commands;
 using OmnichannelDB.Service.EventHandlers.Hadlers;
+using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace OmnichannelDB.Service.EventHandlers.Handlers
@@ -11,14 +14,16 @@ namespace OmnichannelDB.Service.EventHandlers.Handlers
     {
         private readonly ILogger<PlayerCreateEventHandler> _logger;
         private readonly IMediator _mediator;
-        private readonly ApplicationDbContext _context;
+        private readonly IServiceScopeFactory _serviceScopeFactory;
 
         public PlayerCreateEventHandler(
             ILogger<PlayerCreateEventHandler> logger,
-            IMediator mediator)
+            IMediator mediator,
+            IServiceScopeFactory serviceScopeFactory)
         {
             _logger = logger;
             _mediator = mediator;
+            _serviceScopeFactory = serviceScopeFactory;
         }
 
         public async Task Execute(PlayerInfoCreateCommand command)

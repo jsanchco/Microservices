@@ -1,4 +1,5 @@
 ﻿using MediatR;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using OmnichannelDB.Domain;
 using OmnichannelDB.Persistence.Database;
@@ -11,28 +12,32 @@ namespace OmnichannelDB.Service.EventHandlers.Handlers
     public class OmnichannelDBCreateEventHandler : INotificationHandler<PlayerInfoCreateCommand>
     {
         private readonly ILogger<OmnichannelDBCreateEventHandler> _logger;
-        private readonly ApplicationDbContext _context;
+        private readonly IServiceScopeFactory _serviceScopeFactory;
 
         public OmnichannelDBCreateEventHandler(
             ILogger<OmnichannelDBCreateEventHandler> logger,
-            ApplicationDbContext context)
+            IServiceScopeFactory serviceScopeFactory)
         {
             _logger = logger;
-            _context = context;
+            _serviceScopeFactory = serviceScopeFactory;
         }
 
         public async Task Handle(PlayerInfoCreateCommand command, CancellationToken cancellationToken)
         {
             _logger.LogInformation("--- New PlayerInfo creation started");
-            await _context.AddAsync(new Player
+            using (var scope = _serviceScopeFactory.CreateScope())
             {
-                Firstname = command.Firstname,
-                Lastname = command.Lastname,
-                PersonalId = command.PersonalId,
-                Username = command.Username
-            });
+                var dbContext = scope.ServiceProvider.GetService<ApplicationDbContext>();
+                await dbContext.AddAsync(new Player
+                {
+                    Firstname = command.Firstname,
+                    Lastname = command.Lastname,
+                    PersonalId = command.PersonalId,
+                    Username = command.Username
+                });
 
-            await _context.SaveChangesAsync();
+                await dbContext.SaveChangesAsync();
+            }
             _logger.LogInformation("--- New PlayerInfo creation ended");
         }
     }
