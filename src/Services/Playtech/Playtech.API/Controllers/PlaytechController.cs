@@ -9,13 +9,13 @@ namespace Playtech.API.Controllers
 {
     [Route("api/v1/[controller]")]
     [ApiController]
-    public class PlayerController : ControllerBase
+    public class PlaytechController : ControllerBase
     {
-        private readonly ILogger<PlayerController> _logger;
+        private readonly ILogger<PlaytechController> _logger;
         private readonly IServicePlayer _servicePlayer;
 
-        public PlayerController(
-            ILogger<PlayerController> logger,
+        public PlaytechController(
+            ILogger<PlaytechController> logger,
             IServicePlayer servicePlayer
             )
         {
@@ -24,14 +24,14 @@ namespace Playtech.API.Controllers
         }
 
         [HttpGet]
-        public async Task<PlayerInfo> Get(string tags)
+        public async Task<PlayerInfo> Get(string id)
         {
-            _logger.LogInformation("In PlayerController -> Get");
+            _logger.LogInformation("In PlaytechController -> Get");
 
-            if (string.IsNullOrEmpty(tags))
+            if (string.IsNullOrEmpty(id))
                 return await _servicePlayer.GetPlayerInfo();
 
-            return await _servicePlayer.GetPlayerInfo(tags.Split(',').ToList());
+            return await _servicePlayer.GetPlayerInfo(id.Split(',').ToList());
         }
     }
 }

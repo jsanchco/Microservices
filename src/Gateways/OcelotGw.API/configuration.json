@@ -1,0 +1,68 @@
+{
+  "Routes": [
+    {
+      "DownstreamPathTemplate": "/api/v1/playtech",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 54100
+        }
+      ],
+      "UpstreamPathTemplate": "/gateway/playtech",
+      "UpstreamHttpMethod": [ "GET" ],
+      "SwaggerKey": "playtech"
+    },
+    {
+      "DownstreamPathTemplate": "/api/v1/players",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 54200
+        }
+      ],
+      "UpstreamPathTemplate": "/gateway/players",
+      "UpstreamHttpMethod": [ "POST", "GET" ],
+      "SwaggerKey": "players"
+    },
+    {
+      "DownstreamPathTemplate": "/api/v1/players/{id}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 54200
+        }
+      ],
+      "UpstreamPathTemplate": "/gateway/players/{id}",
+      "UpstreamHttpMethod": [ "GET" ],
+      "SwaggerKey": "players"
+    }
+  ],
+  "SwaggerEndPoints": [
+    {
+      "Key": "playtech",
+      "Config": [
+        {
+          "Name": "Playtech API",
+          "Version": "v1",
+          "Url": "http://localhost:54100/swagger/v1/swagger.json"
+        }
+      ]
+    },
+    {
+      "Key": "players",
+      "Config": [
+        {
+          "Name": "Players API",
+          "Version": "v1",
+          "Url": "http://localhost:54200/swagger/v1/swagger.json"
+        }
+      ]
+    }
+  ],
+  "GlobalConfiguration": {
+    "BaseUrl": "http://localhost:51000"
+  }
+}
