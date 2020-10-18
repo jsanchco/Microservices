@@ -85,7 +85,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "04. Models", "04. Models", 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "05. Docker", "05. Docker", "{E9241499-A576-44D0-8A16-7270BA000AA0}"
 	ProjectSection(SolutionItems) = preProject
-		docker-compose.yml = docker-compose.yml
+		src\Services\Users\docker-compose.yml = src\Services\Users\docker-compose.yml
 	EndProjectSection
 EndProject
 Global
