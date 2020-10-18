@@ -38,9 +38,7 @@ namespace OmnichannelDB.Service.Queries
 
         public async Task<PlayerDto> GetAsync(int id)
         {
-            var product = await _context.Players.SingleAsync(x => x.Id == id);
-
-            return (await _context.Players.SingleAsync(x => x.Id == id)).MapTo<PlayerDto>();
+           return (await _context.Players.SingleAsync(x => x.Id == id)).MapTo<PlayerDto>();
         }
     }
 }

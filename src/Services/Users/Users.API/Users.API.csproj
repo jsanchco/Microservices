@@ -1,0 +1,27 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <AssemblyName>Base.API</AssemblyName>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AspNetCore.HealthChecks.MongoDb" Version="3.1.2" />
+    <PackageReference Include="AspNetCore.HealthChecks.UI" Version="3.0.9" />
+    <PackageReference Include="Microsoft.Extensions.Diagnostics.HealthChecks.EntityFrameworkCore" Version="3.1.1" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="5.6.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="healthchecks\" />
+  </ItemGroup>
+
+  <ItemGroup>    
+    <ProjectReference Include="..\..\..\Common\Common.Logging\Common.Logging.csproj" />    
+    <ProjectReference Include="..\..\Common\Service.Common.Collection\Service.Common.Collection.csproj" />    
+    <ProjectReference Include="..\Users.Persistence.Database\Users.Persistence.Database.csproj" />    
+    <ProjectReference Include="..\Users.Service.Queries\Users.Service.Queries.csproj" />
+  </ItemGroup>
+
+
+</Project>

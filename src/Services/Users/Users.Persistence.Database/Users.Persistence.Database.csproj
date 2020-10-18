@@ -5,12 +5,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.8" />
     <PackageReference Include="MongoDB.Driver" Version="2.11.3" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Service.Common.Collection\Service.Common.Collection.csproj" />
+    <ProjectReference Include="..\Users.Domain\Users.Domain.csproj" />
   </ItemGroup>
 
 </Project>
