@@ -14,6 +14,7 @@ namespace Users.Service.Queries
     public interface IUsersServiceQueries
     {
         Task<UserDto> GetAsync(string id);
+        Task<UserDto> GetByFirstnameAsync(string firstname);
         Task<DataCollection<UserDto>> GetAllAsync(int page, int take, IEnumerable<string> users = null);
     }
 
@@ -24,6 +25,13 @@ namespace Users.Service.Queries
         public UsersServiceQueries(ApplicationDbContext context)
         {
             _context = context;
+        }
+
+        public async Task<UserDto> GetByFirstnameAsync(string firstname)
+        {
+            var user = await _context.Users.Find(x => x.Firstname == firstname).FirstOrDefaultAsync();
+
+            return user.MapTo<UserDto>();
         }
 
         public async Task<UserDto> GetAsync(string id)

@@ -37,5 +37,12 @@ namespace Users.API.Controllers
 
             return await _usersServiceQueries.GetAllAsync(page, take, users);
         }
+
+        // users/hfdjgjd893498
+        [HttpGet("{id}")]
+        public async Task<UserDto> Get(string id)
+        {
+            return await _usersServiceQueries.GetAsync(id);
+        }
     }
 }
