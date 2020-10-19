@@ -45,7 +45,7 @@ namespace OmnichannelDB.API
             services.AddHealthChecks()
                         .AddCheck("self", () => HealthCheckResult.Healthy())
                         // Add this command bellow to healthcheck DataBaase
-                        //.AddDbContextCheck<ApplicationDbContext>(typeof(ApplicationDbContext).Name)
+                        .AddDbContextCheck<ApplicationDbContext>(typeof(ApplicationDbContext).Name)
                         ;
 
             // Event handlers
