@@ -1,6 +1,7 @@
 using Common.Bus;
 using Common.Logging;
 using HealthChecks.UI.Client;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Diagnostics.HealthChecks;
 using Microsoft.AspNetCore.Hosting;
@@ -9,6 +10,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Diagnostics.HealthChecks;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Microsoft.IdentityModel.Tokens;
 using Playtech.Service.Player;
 
 namespace Playtech.API
@@ -39,7 +41,31 @@ namespace Playtech.API
 
             services.AddControllers();
 
-            // Receiver bus
+            // Add authorization
+            // accepts any access token issued by identity server
+            services
+                .AddAuthentication("Bearer")
+                .AddJwtBearer("Bearer", options =>
+                {
+                    options.Authority = "https://localhost:5001";
+
+                    options.TokenValidationParameters = new TokenValidationParameters
+                    {
+                        ValidateAudience = false
+                    };
+                });
+
+            // adds an authorization policy to make sure the token is for scope 'scope1'
+            services.AddAuthorization(options =>
+            {
+                options.AddPolicy("ApiScope", policy =>
+                {
+                    policy.RequireAuthenticatedUser();
+                    policy.RequireScope("scope1");
+                });
+            });
+
+            // Sender bus
             services.AddSingleton<IServiceBus, ServiceBus>();
 
             services.AddTransient<IServicePlayer, ServicePlayer>();
@@ -69,11 +95,13 @@ namespace Playtech.API
 
             app.UseRouting();
 
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapControllers();
+                endpoints.MapControllers()
+                    .RequireAuthorization("ApiScope");
                 endpoints.MapHealthChecks("/hc", new HealthCheckOptions()
                 {
                     Predicate = _ => true,

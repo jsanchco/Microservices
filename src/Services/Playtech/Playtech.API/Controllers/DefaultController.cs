@@ -1,8 +1,10 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
 namespace Playtech.API.Controllers
 {
+    [Authorize]
     [ApiController]
     [Route("api/v1/default")]
     public class DefaultController : ControllerBase

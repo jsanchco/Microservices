@@ -104,9 +104,19 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "04. Identity", "04. Identit
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "03. Persistence", "03. Persistence", "{DD947F18-D8CE-455B-BBE9-E827D857624C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Identity.Persistence.Database", "src\Services\Identity\Identity.Persistence.Database\Identity.Persistence.Database.csproj", "{823443CD-954F-4AE0-9B21-0B0F8C7FA3C5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Identity.Persistence.Database", "src\Services\Identity\Identity.Persistence.Database\Identity.Persistence.Database.csproj", "{823443CD-954F-4AE0-9B21-0B0F8C7FA3C5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Identity.Persistence.GenerateDatabase", "src\Services\Identity\Identity.Persistence.GenerateDatabase\Identity.Persistence.GenerateDatabase.csproj", "{755D9CF5-1850-495A-B5F0-62329A687831}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Identity.Persistence.GenerateDatabase", "src\Services\Identity\Identity.Persistence.GenerateDatabase\Identity.Persistence.GenerateDatabase.csproj", "{755D9CF5-1850-495A-B5F0-62329A687831}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "01. Server", "01. Server", "{720E4E0D-D543-4423-AB1A-4B7F73926DE4}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Identity.Server", "src\Services\Identity\Identity.Server\Identity.Server.csproj", "{E15A5CC8-AAF4-4131-90FD-C10253742BA5}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "02. Test", "02. Test", "{2EE24452-523E-4026-A4E4-8DE79C9D1A6C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Identity.TestClientConsole", "src\Services\Identity\Identity.TestClientConsole\Identity.TestClientConsole.csproj", "{865BF8D2-4B5E-4EC6-BEB9-888AE5DA872C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Identity.TestClientAPI", "src\Services\Identity\Identity.TestClientAPI\Identity.TestClientAPI.csproj", "{09EEB1AD-8FA6-4A54-8E8C-97334E7794F7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -198,6 +208,18 @@ Global
 		{755D9CF5-1850-495A-B5F0-62329A687831}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{755D9CF5-1850-495A-B5F0-62329A687831}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{755D9CF5-1850-495A-B5F0-62329A687831}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E15A5CC8-AAF4-4131-90FD-C10253742BA5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E15A5CC8-AAF4-4131-90FD-C10253742BA5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E15A5CC8-AAF4-4131-90FD-C10253742BA5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E15A5CC8-AAF4-4131-90FD-C10253742BA5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{865BF8D2-4B5E-4EC6-BEB9-888AE5DA872C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{865BF8D2-4B5E-4EC6-BEB9-888AE5DA872C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{865BF8D2-4B5E-4EC6-BEB9-888AE5DA872C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{865BF8D2-4B5E-4EC6-BEB9-888AE5DA872C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{09EEB1AD-8FA6-4A54-8E8C-97334E7794F7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{09EEB1AD-8FA6-4A54-8E8C-97334E7794F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{09EEB1AD-8FA6-4A54-8E8C-97334E7794F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{09EEB1AD-8FA6-4A54-8E8C-97334E7794F7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -249,6 +271,11 @@ Global
 		{DD947F18-D8CE-455B-BBE9-E827D857624C} = {73837394-9200-4585-A4C3-F4CDFF817371}
 		{823443CD-954F-4AE0-9B21-0B0F8C7FA3C5} = {DD947F18-D8CE-455B-BBE9-E827D857624C}
 		{755D9CF5-1850-495A-B5F0-62329A687831} = {DD947F18-D8CE-455B-BBE9-E827D857624C}
+		{720E4E0D-D543-4423-AB1A-4B7F73926DE4} = {73837394-9200-4585-A4C3-F4CDFF817371}
+		{E15A5CC8-AAF4-4131-90FD-C10253742BA5} = {720E4E0D-D543-4423-AB1A-4B7F73926DE4}
+		{2EE24452-523E-4026-A4E4-8DE79C9D1A6C} = {73837394-9200-4585-A4C3-F4CDFF817371}
+		{865BF8D2-4B5E-4EC6-BEB9-888AE5DA872C} = {2EE24452-523E-4026-A4E4-8DE79C9D1A6C}
+		{09EEB1AD-8FA6-4A54-8E8C-97334E7794F7} = {2EE24452-523E-4026-A4E4-8DE79C9D1A6C}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {0A5531EE-CDD1-445F-9144-2247A88CD37D}
