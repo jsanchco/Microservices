@@ -9,9 +9,43 @@
           "Port": 54100
         }
       ],
-      "UpstreamPathTemplate": "/gateway/playtech",
+      "UpstreamPathTemplate": "/gateway/playtech/playtech",
       "UpstreamHttpMethod": [ "GET" ],
-      "SwaggerKey": "playtech"
+      "SwaggerKey": "playtech-playtech"
+      //"AuthenticationOptions": {
+      //  "AuthenticationProviderKey": "TestKey",
+      //  "AllowedScopes": []
+      //}
+    },
+    {
+      "DownstreamPathTemplate": "/api/v1/values",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 54100
+        }
+      ],
+      "UpstreamPathTemplate": "/gateway/playtech/values",
+      "UpstreamHttpMethod": [ "GET" ],
+      "SwaggerKey": "playtech-values"
+    },
+    {
+      "DownstreamPathTemplate": "/api/v1/default",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 54100
+        }
+      ],
+      "UpstreamPathTemplate": "/gateway/playtech/default",
+      "UpstreamHttpMethod": [ "GET" ],
+      "SwaggerKey": "playtech-default"
+      //"AuthenticationOptions": {
+      //  "AuthenticationProviderKey": "TestKey",
+      //  "AllowedScopes": [ ]
+      //}
     },
     {
       "DownstreamPathTemplate": "/api/v1/players",
@@ -42,10 +76,30 @@
   ],
   "SwaggerEndPoints": [
     {
-      "Key": "playtech",
+      "Key": "playtech-playtech",
       "Config": [
         {
-          "Name": "Playtech API",
+          "Name": "Playtech-Playtech API",
+          "Version": "v1",
+          "Url": "http://localhost:54100/swagger/v1/swagger.json"
+        }
+      ]
+    },
+    {
+      "Key": "playtech-values",
+      "Config": [
+        {
+          "Name": "Playtech-Values API",
+          "Version": "v1",
+          "Url": "http://localhost:54100/swagger/v1/swagger.json"
+        }
+      ]
+    },
+    {
+      "Key": "playtech-default",
+      "Config": [
+        {
+          "Name": "Playtech-Default API",
           "Version": "v1",
           "Url": "http://localhost:54100/swagger/v1/swagger.json"
         }

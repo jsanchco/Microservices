@@ -17,10 +17,10 @@ namespace Playtech.API.Controllers
         }
 
         [HttpGet]
-        public string Index()
+        public ActionResult Get()
         {
             _logger.LogInformation("In DefaultController [HttpGet]");
-            return "Running ..";
+            return Ok("Running ..");
         }
     }
 }

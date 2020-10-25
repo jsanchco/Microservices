@@ -101,7 +101,8 @@ namespace Playtech.API
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers()
-                    .RequireAuthorization("ApiScope");
+                    //.RequireAuthorization("ApiScope")
+                    ;
                 endpoints.MapHealthChecks("/hc", new HealthCheckOptions()
                 {
                     Predicate = _ => true,
