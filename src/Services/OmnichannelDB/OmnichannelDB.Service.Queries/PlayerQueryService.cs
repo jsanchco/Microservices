@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using OmnichannelDB.Persistence.Database;
 using OmnichannelDB.Service.Queries.DTOs;
+using OmnichannelDB.Service.Queries.Filters;
 using Service.Common.Collection;
 using Service.Common.Mapping;
 using Service.Common.Paging;
@@ -13,6 +14,7 @@ namespace OmnichannelDB.Service.Queries
 {
     public interface IPlayerQueryService
     {
+        Task<DataCollection<PlayerDto>> GetAllWithFilterAsync(FilterPlayers filterPlayers);
         Task<DataCollection<PlayerDto>> GetAllAsync(int page, int take, IEnumerable<int> products = null);
         Task<PlayerDto> GetAsync(int id);
     }
@@ -24,6 +26,18 @@ namespace OmnichannelDB.Service.Queries
         public PlayerQueryService(ApplicationDbContext context)
         {
             _context = context;
+        }
+
+        public async Task<DataCollection<PlayerDto>> GetAllWithFilterAsync(FilterPlayers filterPlayers)
+        {
+            var collection = await _context.Players
+                .Where(x => string.IsNullOrEmpty(filterPlayers.Username) || x.Username == filterPlayers.Username)
+                .Where(x => string.IsNullOrEmpty(filterPlayers.Firstname) || x.Firstname == filterPlayers.Firstname)
+                .Where(x => string.IsNullOrEmpty(filterPlayers.Lastname) || x.Lastname == filterPlayers.Lastname)
+                .OrderByDescending(x => x.Id)
+                .GetPagedAsync(filterPlayers.page, filterPlayers.take);
+
+            return collection.MapTo<DataCollection<PlayerDto>>();
         }
 
         public async Task<DataCollection<PlayerDto>> GetAllAsync(int page, int take, IEnumerable<int> players = null)

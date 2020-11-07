@@ -6,6 +6,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\Common\Service.Common.Collection\Service.Common.Collection.csproj" />
+    <ProjectReference Include="..\..\Common\Service.Common.Filter\Service.Common.Filter.csproj" />
     <ProjectReference Include="..\..\Common\Service.Common.Mapping\Service.Common.Mapping.csproj" />
     <ProjectReference Include="..\..\Common\Service.Common.Paging\Service.Common.Paging.csproj" />
     <ProjectReference Include="..\OmnichannelDB.Persistence.Database\OmnichannelDB.Persistence.Database.csproj" />

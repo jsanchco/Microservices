@@ -4,6 +4,7 @@ using Microsoft.Extensions.Logging;
 using OmnichannelDB.Service.EventHandlers.Commands;
 using OmnichannelDB.Service.Queries;
 using OmnichannelDB.Service.Queries.DTOs;
+using OmnichannelDB.Service.Queries.Filters;
 using Service.Common.Collection;
 using System;
 using System.Collections.Generic;
@@ -32,16 +33,11 @@ namespace OmnichannelDB.API.Controllers
 
         // players
         [HttpGet]
-        public async Task<DataCollection<PlayerDto>> GetAll(int page = 1, int take = 10, string ids = null)
+        public async Task<IActionResult> Get([FromQuery] FilterPlayers filterPlayers)
         {
-            IEnumerable<int> products = null;
+            var result = await _playerQueryService.GetAllWithFilterAsync(filterPlayers);
 
-            if (!string.IsNullOrEmpty(ids))
-            {
-                products = ids.Split(",").Select(x => Convert.ToInt32(x));
-            }
-
-            return await _playerQueryService.GetAllAsync(page, take, products);
+            return Ok(result);
         }
 
         // players/1
